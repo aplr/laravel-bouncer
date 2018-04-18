@@ -1,0 +1,43 @@
+{
+    "name": "aplr/laravel-bouncer",
+    "description": "Rigorously restricts access to your apis.",
+    "keywords": ["laravel", "bouncer", "api", "access"],
+    "support": {
+        "issues": "https://gitlab.aplr.me/aplr/laravel-bouncer/issues",
+        "source": "https://gitlab.aplr.me/aplr/laravel-bouncer"
+    },
+    "authors": [
+        {
+            "name": "Andreas Pfurtscheller",
+            "email": "hello@aplr.me"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "illuminate/support": "5.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~5.0",
+        "mockery/mockery": "~0.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "Aplr\\Bouncer\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Aplr\\Bouncer\\ServiceProvider"
+            ],
+            "aliases": {
+                "Braintree": "Aplr\\Bouncer\\Facade"
+            }
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
