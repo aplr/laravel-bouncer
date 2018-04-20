@@ -17,4 +17,23 @@ class Bouncer
 
         return $key;
     }
+
+    public function deleteKey(string $id)
+    {
+        BouncerKey::destroy($id);
+    }
+
+    public function updateKey(string $id, string $name): BouncerKey
+    {
+        $key = BouncerKey::findOrFail($id);
+        $key->name = $name;
+        $key->save();
+
+        return $key;
+    }
+
+    public function getKeys()
+    {
+        return BouncerKey::all();
+    }
 }
