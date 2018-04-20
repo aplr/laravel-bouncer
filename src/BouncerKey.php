@@ -10,6 +10,11 @@ class BouncerKey extends Model {
     use UuidTrait;
 
     protected $table = "bouncer_keys";
+
+    public function getConnectionName()
+    {
+        return config('bouncer.connection');
+    }
     
     public static function boot()
     {

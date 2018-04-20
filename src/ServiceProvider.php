@@ -7,17 +7,26 @@ use Illuminate\Contracts\Container\Container;
 
 class ServiceProvider extends LaravelServiceProvider
 {
-	/**
-	 * Register Bodybuilder package with Laravel
-	 *
-	 * @return void
-	 */
+    public function boot()
+    {
+        $this->registerConfig();
+
+        $this->registerMigrations();
+	}
+	
 	public function register()
 	{
-		$this->registerMigrations();
+        $this->mergeConfigFrom($this->configPath(), 'bouncer');
 		
 		$this->registerBouncer();
 	}
+
+    protected function registerConfig()
+    {
+        $this->publishes([
+            $this->configPath() => config_path('bouncer.php')
+        ], 'config');
+    }
 
     protected function registerMigrations()
     {
@@ -33,6 +42,11 @@ class ServiceProvider extends LaravelServiceProvider
 		});
 		
 		$this->app->alias('bouncer', Bouncer::class);
+    }
+    
+    protected function configPath()
+    {
+        return __DIR__ . '/../config/emporos.php';
     }
     
     protected function migrationPath()
