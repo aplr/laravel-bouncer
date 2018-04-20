@@ -46,7 +46,7 @@ class ServiceProvider extends LaravelServiceProvider
     
     protected function configPath()
     {
-        return __DIR__ . '/../config/emporos.php';
+        return __DIR__ . '/../config/bouncer.php';
     }
     
     protected function migrationPath()
