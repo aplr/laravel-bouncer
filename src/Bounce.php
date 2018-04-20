@@ -27,11 +27,11 @@ class Bounce
         $key = $request->header('X-API-KEY', null);
 
         if (is_null($key)) {
-            throw new UnauthorizedHttpException("You need to provide an api key.");
+            throw new UnauthorizedHttpException("You need to provide an api key.", "Unauthorized.");
         }
 
         if (!$this->bouncer->check($key)) {
-            throw new UnauthorizedHttpException("Invalid api key.");
+            throw new UnauthorizedHttpException("Invalid api key.", "Unauthorized.");
         }
 
         return $next($request);

@@ -32,7 +32,7 @@
                 "Aplr\\Bouncer\\ServiceProvider"
             ],
             "aliases": {
-                "Braintree": "Aplr\\Bouncer\\Facade"
+                "Bouncer": "Aplr\\Bouncer\\Facade"
             }
         }
     },
