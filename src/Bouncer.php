@@ -6,7 +6,7 @@ class Bouncer
 {
     public function check(string $key): bool
     {
-        return is_null(BouncerKey::findByKey($id));
+        return is_null(BouncerKey::findByKey($key));
     }
 
     public function createKey(string $name): BouncerKey
