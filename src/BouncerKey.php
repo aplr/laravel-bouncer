@@ -25,7 +25,7 @@ class BouncerKey extends Model {
         });
     }
 
-    public static function findByKey($string)
+    public static function findByKey(string $string)
     {
         return self::where('key', $string)->first();
     }
